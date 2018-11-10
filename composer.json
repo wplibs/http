@@ -1,6 +1,6 @@
 {
     "name": "wplibs/http",
-    "description": "The missing http foundation in WordPress",
+    "description": "The missing Http foundation in WordPress",
     "type": "library",
     "license": "MIT",
     "authors": [
