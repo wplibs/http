@@ -26,7 +26,7 @@
     },
     "require-dev": {
         "phpunit/phpunit": "4.8.*|5.7.*",
-        "mockery/mockery": "^0.9",
+        "mockery/mockery": "^0.9|^1.0",
         "wplibs/session": "^1.0"
     },
     "suggest": {
