@@ -41,11 +41,22 @@ trait Request_With_Content_Types {
 	 */
 	protected function string_contains( $haystack, $needles ) {
 		foreach ( (array) $needles as $needle ) {
-			if ( '' !== $needle && mb_strpos( $haystack, $needle ) !== false ) {
+			if ( '' !== $needle && $this->strpos( $haystack, $needle ) !== false ) {
 				return true;
 			}
 		}
 
 		return false;
+	}
+
+	/**
+	 * Find position of first occurrence of string in a string.
+	 *
+	 * @param  string $haystack
+	 * @param  string $needle
+	 * @return bool|int
+	 */
+	protected function strpos( $haystack, $needle ) {
+		return function_exists( 'mb_strpos' ) ? mb_strpos( $haystack, $needle ) : strpos( $haystack, $needle );
 	}
 }
