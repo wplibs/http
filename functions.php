@@ -1,8 +1,8 @@
 <?php
 
+use WPLibs\Http\Request;
 use WPLibs\Http\Json_Response;
 use WPLibs\Http\Redirect_Response;
-use WPLibs\Http\Request;
 
 if ( defined( 'WPLIBS_HTTP_VERSION' ) ) {
 	return;
@@ -12,10 +12,10 @@ if ( defined( 'WPLIBS_HTTP_VERSION' ) ) {
 define( 'WPLIBS_HTTP_VERSION', '1.0.3' );
 
 // Setup the Http request on `plugins_loaded`.
-if ( did_action( 'plugins_loaded' ) ) {
-	wplibs_http_request();
-} else {
+if ( ! did_action( 'plugins_loaded' ) ) {
 	add_action( 'plugins_loaded', 'wplibs_http_request', 0 );
+} else {
+	wplibs_http_request();
 }
 
 /**
