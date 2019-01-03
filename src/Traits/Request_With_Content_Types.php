@@ -41,7 +41,7 @@ trait Request_With_Content_Types {
 	 */
 	protected function string_contains( $haystack, $needles ) {
 		foreach ( (array) $needles as $needle ) {
-			if ( '' !== $needle && $this->strpos( $haystack, $needle ) !== false ) {
+			if ( '' !== $needle && $this->_strpos( $haystack, $needle ) !== false ) {
 				return true;
 			}
 		}
@@ -56,7 +56,7 @@ trait Request_With_Content_Types {
 	 * @param  string $needle
 	 * @return bool|int
 	 */
-	protected function strpos( $haystack, $needle ) {
+	protected function _strpos( $haystack, $needle ) {
 		return function_exists( 'mb_strpos' ) ? mb_strpos( $haystack, $needle ) : strpos( $haystack, $needle );
 	}
 }
